@@ -1,0 +1,53 @@
+---
+title: "yc4384_Yangyang_Chen_HW9"
+author: "yc4384_Yangyang_Chen"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(latex2exp)
+library(tidyverse)
+```
+
+## 1.
+
+$H(t) = \int_0^t{h(t)}dt = \int_0^\infty{\frac{2t}{(1+t^2)}}dt = log(1+t^2)|_0^\infty = log(1+t^2)$
+
+Survival function:
+
+$S(t) = exp(-H(t)) = \frac{1}{1+t^2}$
+
+pdf of $t$:
+
+$f(t) = h(t)\times S(t) = \frac{2t}{1+t^2}\times \frac{1}{1+t^2} = \frac{2t}{(1+t^2)^2}$
+
+## 2.
+For the following data
+1, 2, 2, 4+, 5+, 6, 7+, 8+, 9+, 10+,
+where + denotes a right censored observation. Write out the data table and calculate the following by hand.
+
+(a) Find the Kaplan-Meier estimate of the survival function;
+
+\[
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+t_i & n_i & d_i & c_i & \lambda_i & S(t) \\
+\hline
+1 & 10 & 1 & 0 & \frac{1}{10} & 1 \times \left(1 - \frac{1}{10}\right) = 0.9 \\
+2 & 9 & 2 & 0 & \frac{2}{9} & 0.9 \times \left(1 - \frac{2}{9}\right) = 0.778 \\
+4 & 7 & 0 & 1 & \frac{0}{7} & 0.778 \times \left(1 - \frac{0}{7}\right) = 0.778 \\
+5 & 6 & 0 & 1 & \frac{0}{6} & 0.778 \times \left(1 - \frac{0}{6}\right) = 0.778 \\
+6 & 5 & 1 & 0 & \frac{1}{5} & 0.778 \times \left(1 - \frac{1}{5}\right) = 0.622 \\
+7 & 4 & 0 & 1 & \frac{0}{4} & 0.622 \times \left(1 - \frac{0}{4}\right) = 0.622 \\
+8 & 3 & 0 & 1 & \frac{0}{3} & 0.622 \times \left(1 - \frac{0}{3}\right) = 0.622 \\
+9 & 2 & 0 & 1 & \frac{0}{2} & 0.622 \times \left(1 - \frac{0}{2}\right) = 0.622 \\
+10 & 1 & 0 & 1 & \frac{0}{1} & 0.622 \times \left(1 - \frac{0}{1}\right) = 0.622 \\
+\hline
+\end{array}
+\]
+
+(b) Find the Nelson-Aalen estimate of the cumulative hazard function;
+
+
+(c) Find the Fleming-Harrington estimate of the survival function.
